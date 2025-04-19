@@ -113,13 +113,13 @@ public class HouseController {
 			@AuthenticationPrincipal UserDetailsImpl userDetailsImpl) {
 		// 物件IDに基づいて物件情報を取得
 		House house = houseRepository.getReferenceById(id);
-		User user = userDetailsImpl.getUser();
 		boolean hasUserAlreadyReviewed = false;
 		Favorite favorite = null;
 		boolean isFavorite = false;
 
 		if (userDetailsImpl != null) {
-			isFavorite = favoriteService.isFavorite(house, user);
+			 User user = userDetailsImpl.getUser();
+			 isFavorite = favoriteService.isFavorite(house, user);
 			if (isFavorite) {
 				favorite = favoriteRepository.findByHouseAndUser(house, user);
 			}
