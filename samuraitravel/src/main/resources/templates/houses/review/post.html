@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+	<div th:replace="~{fragment :: meta}"></div>
+
+	<div th:replace="~{fragment :: styles}"></div>
+
+	<!-- Flatpickr -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+	<link th:href="@{/css/style.css}" rel="stylesheet">
+	<title>レビュー投稿</title>
+</head>
+
+<body>
+	<div class="samuraitravel-wrapper">
+		<!-- ヘッダー -->
+		<div th:replace="~{fragment :: header}"></div>
+
+		<main>
+			<div class="container pt-4 pb-5 samuraitravel-container">
+				<div class="row justify-content-center">
+					<div class="col-xxl-9 col-xl-10 col-lg-11">
+						<nav class="mb-4" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+							<ol class="breadcrumb mb-0">
+								<li class="breadcrumb-item"><a th:href="@{/}">ホーム</a></li>
+								<li class="breadcrumb-item"><a th:href="@{/houses}">民宿一覧</a></li>
+								<li class="breadcrumb-item"><a th:href="@{/houses}">民宿詳細</a></li>
+								<li class="breadcrumb-item active" aria-current="page"><a>レビュー投稿</a></li>
+							</ol>
+						</nav>
+						<h1 class="mb-4 text-center">のレビュー投稿</h1>
+						<form>
+							<div class="rating">
+								<label for="rating">評価：</label>
+								<div class="stars">
+									<select id="rating" name="rating">
+										<option value="1">★</option>
+										<option value="2">★★</option>
+										<option value="3">★★★</option>
+										<option value="4">★★★★</option>
+										<option value="5">★★★★★</option>
+									</select>
+								</div>
+								<input type="hidden" id="rating" name="rating" value="0">
+							</div>
+							<div class="form-group">
+								<label for="comment">コメント</label>
+								<textarea id="comment"></textarea>
+							</div>
+
+						</form>
+						<div class="form-group center-button">
+							<button type="submit" class="btn  text-white shadow-sm w-50 samuraitravel-btn">投稿</button>
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>
+
+
+	</div>
+	</main>
+
+	<!-- フッター -->
+	<div th:replace="~{fragment :: footer}"></div>
+	</div>
+
+	<div th:replace="~{fragment :: scripts}"></div>
+	<!-- Flatpickr -->
+	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+	<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ja.js"></script>
+	<script th:src="@{/js/flatpickr.js}"></script>
+</body>
+
+</html>
