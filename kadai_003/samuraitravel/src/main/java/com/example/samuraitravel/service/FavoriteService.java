@@ -18,13 +18,18 @@ public class FavoriteService {
 
 	@Transactional
 	public void create(House house, User user) {
+		if (!isFavorite(house, user)) {
 		Favorite favorite = new Favorite();
-
+		favorite.setHouse(house);
 		favorite.setHouse(house);
 		favorite.setUser(user);
-
 		favoriteRepository.save(favorite);
+		System.out.println("物件ID: " + house.getId() + "、ユーザーID: " + user.getId() + " をお気に入り登録しました。");
+	} else {
+		System.out.println("物件ID: " + house.getId() + "、ユーザーID: " + user.getId() + " はすでにお気に入り登録されています。");
 	}
+	}
+	
 
 	public boolean isFavorite(House house, User user) {
 		return favoriteRepository.findByHouseAndUser(house, user) != null;
