@@ -48,6 +48,7 @@ public class FavoriteController {
 			@AuthenticationPrincipal UserDetailsImpl userDetailsImpl,
 			RedirectAttributes redirectAttributes,
 			Model model) {
+<<<<<<< HEAD
 
 		House house = houseRepository.getReferenceById(houseId);
 		User user = userDetailsImpl.getUser();
@@ -64,12 +65,20 @@ public class FavoriteController {
 			// すでに登録済み
 			redirectAttributes.addFlashAttribute("errorMessage", "すでにお気に入りに追加済みです。");
 		}
+=======
+		House house = houseRepository.getReferenceById(houseId);
+		User user = userDetailsImpl.getUser();
+
+		favoriteService.create(house, user);
+		redirectAttributes.addFlashAttribute("successMessage", "お気に入りに追加しました。");
+>>>>>>> origin/main
 
 		return "redirect:/houses/{houseId}";
 	}
 
 	@PostMapping("/houses/{houseId}/favorites/{favoriteId}/delete")
 	public String delete(@PathVariable(name = "favoriteId") Integer favoriteId, RedirectAttributes redirectAttributes) {
+<<<<<<< HEAD
 	    if (favoriteRepository.existsById(favoriteId)) {
 
 		favoriteRepository.deleteById(favoriteId);
@@ -78,6 +87,12 @@ public class FavoriteController {
 	    } else {
 	        redirectAttributes.addFlashAttribute("errorMessage", "指定されたお気に入りは存在しませんでした。");
 	    }
+=======
+		favoriteRepository.deleteById(favoriteId);
+
+		redirectAttributes.addFlashAttribute("successMessage", "お気に入りを解除しました。");
+
+>>>>>>> origin/main
 		return "redirect:/houses/{houseId}";
 	}
 }
