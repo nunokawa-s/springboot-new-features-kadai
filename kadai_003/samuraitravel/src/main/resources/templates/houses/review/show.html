@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+	<div th:replace="~{fragment :: meta}"></div>
+
+	<div th:replace="~{fragment :: styles}"></div>
+
+	<!-- Flatpickr -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+	<link th:href="@{/css/style.css}" rel="stylesheet">
+	<title>レビュー一覧</title>
+</head>
+
+<body>
+	<!-- ヘッダー -->
+	<div th:replace="~{fragment :: header}"></div>
+	
+	<main>
+		<div class="container pt-4 pb-5 samuraitravel-container">
+			<div class="row justify-content-center">
+				<div class="col-xxl-9 col-xl-10 col-lg-11">
+					<nav class="mb-4" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+						<ol class="breadcrumb mb-0">
+							<li class="breadcrumb-item"><a th:href="@{/}">ホーム</a></li>
+							<li class="breadcrumb-item"><a th:href="@{/houses}">民宿一覧</a></li>
+							<li class="breadcrumb-item"><a th:href="@{/houses}">民宿詳細</a></li>
+							<li class="breadcrumb-item active" aria-current="page">レビュー一覧</li>
+						</ol>
+					</nav>
+
+				</div>
+
+				<div class="container pt-4 pb-5 samuraitravel-container">
+					<div class="row justify-content-center">
+						<div class="col-xxl-9 col-xl-10 col-lg-11">
+							<h1 class="mb-4 text-center">のレビュー一覧</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+
+
+	<!-- フッター -->
+	<div th:replace="~{fragment :: footer}"></div>
+
+
+	<div th:replace="~{fragment :: scripts}"></div>
+	<!-- Flatpickr -->
+	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+	<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ja.js"></script>
+	<script th:src="@{/js/flatpickr.js}"></script>
+</body>
+
+</html>
